@@ -14,7 +14,9 @@ redis
 gunicorn
 ```
 
-3.将`test.log`的内容实时显示在页面
+3.`test.py` 是实时的向test.log里面写内容，测试使用
+
+4.将`test.log`的内容实时显示在页面
 
 #### 执行
 
