@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<h1>日志实时显示Demo</h1>
+<button id="button">显示日志</button>
+
+<div id="success"></div>
+<script src="jquery-3.1.1.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+    $(function () {
+        $("#button").click(function () {
+            var http_url = 'http://127.0.0.1:5000/';
+            $.ajax({
+                url: http_url + "messages",
+                type: 'GET',
+                success: function (data) {
+                    if (data.code == 200) {
+                        $('#success').text('Send message success!')
+                    }
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.log(textStatus)
+                    hide_popover('#user_deatil_submit', '程序错误,请联系管理员')
+                }
+            });
+        });
+    })
+</script>
+</body>
+</html>
